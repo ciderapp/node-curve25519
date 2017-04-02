@@ -3,7 +3,10 @@
 #include <node_buffer.h>
 #include <string.h>
 #include <stdlib.h>
-#include <unistd.h>
+#ifdef _WIN32
+  #include <io.h>
+#else
+  #include <unistd.h>
 #include "curve25519-donna.c"
 
 #include <nan.h>
