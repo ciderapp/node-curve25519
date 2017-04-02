@@ -1,7 +1,7 @@
 {
   "name": "curve25519-n2",
   "description": "A binding to the curve25519-donna library that supports windows.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "index.js",
   "scripts": {
     "test": "node test.js"
