@@ -7,6 +7,7 @@
   #include <io.h>
 #else
   #include <unistd.h>
+#endif
 #include "curve25519-donna.c"
 
 #include <nan.h>
