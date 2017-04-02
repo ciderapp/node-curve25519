@@ -1,4 +1,4 @@
-This is a binding to the curve25519-donna library for node. Usage:
+This is a binding to the curve25519-donna library for node that supports windows. Usage:
 
     var curve = require('curve25519');
 
