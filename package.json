@@ -4,12 +4,29 @@
   "description": "A binding to the curve25519-donna library that supports windows.",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "build-binaries-electron": "run-script-os",
+    "build-binaries-electron-ci": "prebuild --platform win32 --platform linux --platform darwin --include-regex \"^.*\\.(node|dylib|lib|exp|dll|so(\\.[0-9])?)$\" -r electron -t 19.0.1 -t 16.0.7",
+    "build-binaries-electron:win32": "prebuild --platform win32 --include-regex \"^.*\\.(node|dylib|lib|exp|dll|so(\\.[0-9])?)$\" -r electron -t 19.0.3 -t 18.3.3 -t 16.0.7",
+    "build-binaries-electron:linux": "prebuild --platform linux --include-regex \"^.*\\.(node|dylib|lib|exp|dll|so(\\.[0-9])?)$\" -r electron -t 19.0.3 -t 18.3.3",
+    "build-binaries-electron:darwin": "prebuild --platform darwin --include-regex \"^.*\\.(node|dylib|lib|exp|dll|so(\\.[0-9])?)$\" -r electron -t 19.0.3 -t 18.3.3",
+    "build-binaries-electron2": "prebuild --platform darwin -a arm64 --include-regex \"^.*\\.(node|dylib|lib|exp|dll|so(\\.[0-9])?)$\" -r electron -t 19.0.3 -t 18.3.3",  
+    "install": "prebuild-install || npm run rebuild",
+    "rebuild": "node-gyp configure build"
   },
   "author": "Jann Horn <jannhorn@googlemail.com>",
   "license": "ISC",
   "dependencies": {
     "nan": "^2.0.9",
-    "bindings": "~1.2.1"
-  }
+    "bindings": "~1.2.1",
+    "run-script-os": "^1.1.6",
+    "prebuild-install": "^7.1.0"
+  },
+  "devDependencies": {
+    "prebuild": "^11.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ciderapp/node-curve25519.git"
+  },
 }
